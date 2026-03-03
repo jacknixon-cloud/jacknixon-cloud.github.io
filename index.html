@@ -483,12 +483,18 @@
       .then(() => {
         status.textContent = 'Message sent!';
         status.className = 'form-status success';
-        btn.textContent = 'Send Message';
+        btn.textContent = 'Close';
         btn.disabled = false;
-        document.getElementById('cf-name').value = '';
-        document.getElementById('cf-email').value = '';
-        document.getElementById('cf-subject').value = '';
-        document.getElementById('cf-message').value = '';
+        btn.onclick = () => {
+          document.getElementById('contactModal').classList.remove('open');
+          document.getElementById('cf-name').value = '';
+          document.getElementById('cf-email').value = '';
+          document.getElementById('cf-subject').value = '';
+          document.getElementById('cf-message').value = '';
+          status.className = 'form-status';
+          btn.textContent = 'Send Message';
+          btn.onclick = sendContact;
+        };
       })
       .catch(() => {
         status.textContent = 'Something went wrong. Try again.';
