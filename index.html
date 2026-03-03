@@ -186,6 +186,26 @@
     .dot-mathcards { background: var(--accent-1); }
     .dot-scribble  { background: var(--accent-2); }
     .dot-wwa       { background: var(--accent-3); }
+
+    .feedback-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.15s;
+      min-height: 36px;
+      margin-left: auto;
+    }
+    .feedback-btn:hover { color: var(--text); border-color: #3d4455; }
   </style>
   <style>
     .modal-overlay {
@@ -321,7 +341,7 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
         TikTok
       </a>
-      <button onclick="document.getElementById('contactModal').classList.add('open')" style="display:inline-flex;align-items:center;gap:0.55rem;margin-top:0.35rem;text-decoration:none;color:#fff;font-family:'DM Mono',monospace;font-size:1.05rem;letter-spacing:0.05em;border:1px solid #4a5060;padding:0.8rem 1.4rem;border-radius:8px;transition:all 0.15s;background:#1e222c;font-weight:500;cursor:pointer;" onmouseover="this.style.background='#272c38';this.style.borderColor='#6a7080'" onmouseout="this.style.background='#1e222c';this.style.borderColor='#4a5060'">
+      <button onclick="openContact('')" style="display:inline-flex;align-items:center;gap:0.55rem;margin-top:0.35rem;text-decoration:none;color:#fff;font-family:'DM Mono',monospace;font-size:1.05rem;letter-spacing:0.05em;border:1px solid #4a5060;padding:0.8rem 1.4rem;border-radius:8px;transition:all 0.15s;background:#1e222c;font-weight:500;cursor:pointer;" onmouseover="this.style.background='#272c38';this.style.borderColor='#6a7080'" onmouseout="this.style.background='#1e222c';this.style.borderColor='#4a5060'">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Contact
       </button>
@@ -336,6 +356,10 @@
     <div class="app-header">
       <span class="app-dot dot-mathcards"></span>
       <span class="app-name">Math Cards</span>
+      <button class="feedback-btn" onclick="openContact('Feedback about Math Cards')">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Feedback
+      </button>
     </div>
     <div class="app-body">
       <div>
@@ -374,6 +398,10 @@
     <div class="app-header">
       <span class="app-dot dot-wwa"></span>
       <span class="app-name">WearWithAll</span>
+      <button class="feedback-btn" onclick="openContact('Feedback about WearWithAll')">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Feedback
+      </button>
     </div>
     <div class="app-body">
       <div>
@@ -404,6 +432,10 @@
     <div class="app-header">
       <span class="app-dot dot-scribble"></span>
       <span class="app-name">Scribble Pass</span>
+      <button class="feedback-btn" onclick="openContact('Feedback about Scribble Pass')">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Feedback
+      </button>
     </div>
     <div class="app-body">
       <div>
@@ -461,6 +493,17 @@
 <script>
   emailjs.init('eItK7747SOH92L-F3');
 
+  function openContact(subject) {
+    const subjectField = document.getElementById('cf-subject');
+    subjectField.value = subject;
+    subjectField.readOnly = !!subject;
+    subjectField.style.color = subject ? 'var(--muted)' : '';
+    document.getElementById('cf-submit').textContent = 'Send Message';
+    document.getElementById('cf-submit').onclick = sendContact;
+    document.getElementById('cf-status').className = 'form-status';
+    document.getElementById('contactModal').classList.add('open');
+  }
+
   function sendContact() {
     const name    = document.getElementById('cf-name').value.trim();
     const email   = document.getElementById('cf-email').value.trim();
@@ -479,7 +522,16 @@
     btn.textContent = 'Sending…';
     status.className = 'form-status';
 
-    emailjs.send('service_a90aa4h', 'template_g3xij4u', { name, email, subject, message })
+    const params = {
+      name:    name,
+      email:   email,
+      subject: subject,
+      message: message
+    };
+
+    console.log('Sending params:', JSON.stringify(params));
+
+    emailjs.send('service_a90aa4h', 'template_g3xij4u', params)
       .then(() => {
         status.textContent = 'Message sent!';
         status.className = 'form-status success';
@@ -489,15 +541,19 @@
           document.getElementById('contactModal').classList.remove('open');
           document.getElementById('cf-name').value = '';
           document.getElementById('cf-email').value = '';
-          document.getElementById('cf-subject').value = '';
+          const sf = document.getElementById('cf-subject');
+          sf.value = '';
+          sf.readOnly = false;
+          sf.style.color = '';
           document.getElementById('cf-message').value = '';
           status.className = 'form-status';
           btn.textContent = 'Send Message';
           btn.onclick = sendContact;
         };
       })
-      .catch(() => {
-        status.textContent = 'Something went wrong. Try again.';
+      .catch((err) => {
+        console.error('EmailJS error:', JSON.stringify(err));
+        status.textContent = 'Something went wrong: ' + (err?.text || err?.message || JSON.stringify(err));
         status.className = 'form-status error';
         btn.textContent = 'Send Message';
         btn.disabled = false;
