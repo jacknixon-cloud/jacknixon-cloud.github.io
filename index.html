@@ -345,6 +345,7 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Contact
       </button>
+      <a href="https://buymeacoffee.com/jackmakesapps1" target="_blank" rel="noopener" title="Buy me a coffee" style="display:inline-flex;align-items:center;justify-content:center;margin-top:0.35rem;text-decoration:none;border:1px solid #4a5060;padding:0.8rem 1rem;border-radius:8px;transition:all 0.15s;background:#1e222c;font-size:1.2rem;" onmouseover="this.style.background='#272c38';this.style.borderColor='#6a7080'" onmouseout="this.style.background='#1e222c';this.style.borderColor='#4a5060'">☕</a>
     </div>
   </div>
 </header>
@@ -528,8 +529,6 @@
       subject: subject,
       message: message
     };
-
-    console.log('Sending params:', JSON.stringify(params));
 
     emailjs.send('service_a90aa4h', 'template_g3xij4u', params)
       .then(() => {
