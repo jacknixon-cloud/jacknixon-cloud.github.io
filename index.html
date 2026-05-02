@@ -502,6 +502,29 @@
     </div>
   </div>
 
+
+  <!-- 4. Can I Plant -->
+  <div class="app-card">
+    <div class="app-icon" aria-label="Can I Plant logo">
+      <img src="https://caniplant.app/assets/assets/images/icon.c18b0f1a6d0a8eff66a933223a2aec2a.png" alt="Can I Plant logo" />
+    </div>
+    <div class="app-name">Can I Plant?</div>
+    <a class="web-link" href="https://caniplant.app" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      caniplant.app
+    </a>
+    <div class="card-actions">
+      <button class="about-btn" onclick="openAbout('Can I Plant?')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        About
+      </button>
+      <button class="feedback-btn" onclick="openContact('Feedback about Can I Plant')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Feedback
+      </button>
+    </div>
+  </div>
+
 </div>
 
 <!-- Contact Modal -->
@@ -552,7 +575,8 @@
   const aboutContent = {
     'Math Cards': `<p>My daughter Cara was struggling with memorizing multiplication tables this year, and then the class started on fractions, and it became even more stressful.</p><p>The tools they were using in class weren’t helping, and flash cards were working, albeit very slowly. All of the math games out there seemed to have the same issue she was having with the ones provided by the school: the practice was interrupted by gamification or otherwise didn’t promote the quick repetition loop she needed for memorization.</p><p>So I decided to make an app that would help. Not only did it help, we saw serious progress with her multiplication skills in just a few weeks. Then I added fractions, division, addition, and subtraction. Now I believe Math Cards should be available to every child who benefits from this learning method.</p>`,
     'WearWithAll': `<p>I’ve struggled my entire life trying to differentiate similar colors and hues.</p><p>There were many days that my wife picked up our daughter from school and said, “Did you spill something on yourself and need to change?” and my daughter would tell her, “No, Daddy dressed me this way.”</p><p>That’s why I made this app for the colorblind. It doesn’t just identify and explain colors, it also helps people pick outfits that match. I’d like to add more to this app if people find it useful.</p>`,
-    'Scribble Pass': `<p>A fun game based on the old “telephone” or “whisper down the lane” idea that a few board games have used in the past.</p><p>This time, it gets kids to stop scrolling on their phone and instead pass the phone around and have some hilarious fun.</p><p>We play tested it with our in-laws and cousins several times, and it was a riot.</p>`
+    'Scribble Pass': `<p>A fun game based on the old “telephone” or “whisper down the lane” idea that a few board games have used in the past.</p><p>This time, it gets kids to stop scrolling on their phone and instead pass the phone around and have some hilarious fun.</p><p>We play tested it with our in-laws and cousins several times, and it was a riot.</p>`,
+    'Can I Plant?': `<p>Remove anxiety around when to plan and caring for your garden. Get a clear yes, no, or wait answer based on real weather, not generic planting dates. Uses NOAA forecasts and climate trends.</p>`
   };
 
   function openAbout(appName) {
